@@ -49,7 +49,7 @@ const config: HardhatUserConfig = {
     prepayment: {
       baobab: '0x6f735909cd47b9f9E9B80056fFCC9b667f62411e'
     },
-    vrfCoordinatorAddress: {
+    vrfCoordinator: {
       baobab: '0xC2690d24a850116180300940Ad248f3Fc1a0e83E'
     }
   }
