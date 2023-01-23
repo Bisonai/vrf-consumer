@@ -29,8 +29,8 @@ npx hardhat node --network baobab
 
 ## Request & Read VRF
 
-Before running scripts in this folder, one must deploy `VRFConsumer` smart contract.
-To deploy the smart contract, run `npx hardhat deploy --network baobab`.
+Before running following scripts, one must deploy `VRFConsumer` smart contract.
+To deploy `VRFConsumer`, run `npx hardhat deploy --network baobab`.
 
 ### Request VRF
 
