@@ -1,0 +1,46 @@
+# VRF Consumer
+
+Consumer smart contract that utilizes VRF functionality from [Orakl Network](https://github.com/bisonai-cic/ICN).
+
+Warning: This repository and smart contract is meant to be for deployment on `baobab`.
+
+## Installation
+
+```shell
+yarn install
+```
+
+## Compilation
+
+```shell
+yarn compile
+```
+
+## Deploy
+
+```shell
+npx hardhat node --network baobab
+```
+
+## Off-chain VRF Scripts
+
+Before running scripts in this folder, one must deploy `VRFConsumerContract`.
+To deploy the smart contract, run `npx hardhat deploy --network baobab`.
+
+### Read VRF response
+
+```
+npx hardhat run scripts/read-vrf.ts --network baobab
+```
+
+### Request VRF
+
+```
+npx hardhat run scripts/request-vrf.ts --network baobab
+```
+
+### Request VRF with direct payment
+
+```
+npx hardhat run scripts/request-vrf-direct.ts --network baobab
+```
