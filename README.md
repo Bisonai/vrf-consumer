@@ -27,16 +27,10 @@ yarn compile
 npx hardhat node --network baobab
 ```
 
-## Off-chain VRF Scripts
+## Request & Read VRF
 
-Before running scripts in this folder, one must deploy `VRFConsumerContract`.
+Before running scripts in this folder, one must deploy `VRFConsumer` smart contract.
 To deploy the smart contract, run `npx hardhat deploy --network baobab`.
-
-### Read VRF response
-
-```
-npx hardhat run scripts/read-vrf.ts --network baobab
-```
 
 ### Request VRF
 
@@ -48,4 +42,10 @@ npx hardhat run scripts/request-vrf.ts --network baobab
 
 ```
 npx hardhat run scripts/request-vrf-direct.ts --network baobab
+```
+
+### Read VRF response
+
+```
+npx hardhat run scripts/read-vrf.ts --network baobab
 ```
