@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-import '@bisonai-cic/icn-contracts/src/v0.1/VRFConsumerBase.sol';
-import '@bisonai-cic/icn-contracts/src/v0.1/interfaces/VRFCoordinatorInterface.sol';
+import '@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol';
+import '@bisonai/orakl-contracts/src/v0.1/interfaces/VRFCoordinatorInterface.sol';
 
 contract VRFConsumer is VRFConsumerBase {
   uint256 public s_randomWord;

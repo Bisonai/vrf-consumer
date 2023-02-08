@@ -1,5 +1,5 @@
 import { ethers } from 'hardhat'
-import { Prepayment__factory } from '@bisonai-cic/icn-contracts'
+import { Prepayment__factory } from '@bisonai/orakl-contracts'
 import dotenv from 'dotenv'
 
 dotenv.config()
