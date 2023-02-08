@@ -29,7 +29,7 @@ The list of free available JSON-RPC endpoint can be found in [official Klaytn do
 npx mnemonics
 ```
 
-After mnemonic is generated, we need to convert it to public address and fund it with KLAY.
+After mnemonic is generated, you need to convert it to public address and fund it with KLAY.
 If you do not have any KLAY in your account, you cannot deploy smart contracts or make any transactions.
 
 You can convert your newly generated mnemonic with following hardhat task.
