@@ -55,4 +55,11 @@ const config: HardhatUserConfig = {
   }
 }
 
+task('address', 'Convert mnemonic to address')
+  .addParam('mnemonic', "The account's mnemonic")
+  .setAction(async (taskArgs, hre) => {
+    const wallet = hre.ethers.Wallet.fromMnemonic(taskArgs.mnemonic)
+    console.log(wallet.address)
+  })
+
 export default config
