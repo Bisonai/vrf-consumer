@@ -62,7 +62,7 @@ npx hardhat deploy --network baobab
 
 ## Create and fund account
 
-There are two types of payment supported by Orakle Network VRF: **Prepayment** and **Direct Payment**.
+There are two types of payments supported by Orakle Network VRF: **Prepayment** and **Direct Payment**.
 
 **Prepayment** requires user to create account and fund it with KLAY before being able to use it.
 The script below will create a new account and deposit 1 KLAY from address corresponding to your mnemonic from `.env` file.
@@ -74,7 +74,7 @@ In such case, you can skip the following command and go directly to **Request VR
 npx hardhat run scripts/create-and-fund.ts --network baobab
 ```
 
-After successfully executing the command above, set the environment value `ACC_ID` inside of `.env` file to account ID that was generated using the script above.
+After successfully executing the command above, set the value of environment variable `ACC_ID` inside of `.env` file to account ID that was generated using the script above.
 If you do not do it, the request for VRF using Prepayment won't be working properly.
 After setting the `ACC_ID` in `.env` file, you can move to the next step **Request VRF with Prepayment**.
 
