@@ -36,7 +36,7 @@ You can convert your newly generated mnemonic with following hardhat task.
 Please replace the `[MENONIC]` with your mnemonic.
 
 ```shell
-npx hardhat --mnemonic [MNEMONIC]
+npx hardhat address --mnemonic [MNEMONIC]
 ```
 
 The script will print out a public address corresponding to your mnemonic.
