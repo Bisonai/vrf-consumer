@@ -2,7 +2,7 @@
 
 Consumer smart contract that utilizes VRF functionality from [Orakl Network](https://github.com/bisonai-cic/orakl).
 
-> Warning: This repository and smart contract are meant to be for deployment on [`baobab`](https://docs.klaytn.foundation/misc/faq#what-is-cypress-what-is-baobab).
+> Warning: This repository and smart contract are meant to be for deployment on [`Baobab`](https://docs.klaytn.foundation/misc/faq#what-is-cypress-what-is-baobab).
 
 Internally, the scripts access following smart contracts:
 
@@ -40,7 +40,7 @@ npx hardhat --mnemonic [MNEMONIC]
 ```
 
 The script will print out a public address corresponding to your mnemonic.
-Then, you can use this address to receive free KLAY using [baobab's faucet](https://baobab.wallet.klaytn.foundation/faucet).
+Then, you can use this address to receive free KLAY using [Baobab's faucet](https://baobab.wallet.klaytn.foundation/faucet).
 
 ## Installation
 
