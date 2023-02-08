@@ -57,7 +57,7 @@ yarn compile
 ## Deploy
 
 ```shell
-npx hardhat node --network baobab
+npx hardhat deploy --network baobab
 ```
 
 ## Request & Read VRF
