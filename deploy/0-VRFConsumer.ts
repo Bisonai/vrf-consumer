@@ -7,8 +7,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deploy } = deployments
   const {
     deployer,
-    vrfCoordinatorAddress: vrfCoordinator,
-    prepaymentAddress: prepayment
+    vrfCoordinator: vrfCoordinatorAddress,
+    prepayment: prepaymentAddress
   } = await getNamedAccounts()
 
   console.log('0-VRFConsumer.ts')
