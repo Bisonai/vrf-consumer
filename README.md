@@ -71,7 +71,7 @@ If you prefer to use Orakl Network VRF without having a long-lasting account, yo
 In such case, you can skip the following command and go directly to **Request VRF with Direct Payment**.
 
 ```
-npx hardhat run scripts/create-and-fund.ts --network baobab
+npx hardhat run scripts/create-and-fund-account.ts --network baobab
 ```
 
 After successfully executing the command above, set the value of environment variable `ACC_ID` inside of `.env` file to account ID that was generated using the script above.
