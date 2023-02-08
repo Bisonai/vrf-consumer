@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "extends": [
+    "prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error"
+    ]
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2022,
+    "parser": "@typescript-eslint/parser"
+  }
+}
