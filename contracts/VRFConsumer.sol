@@ -30,7 +30,6 @@ contract VRFConsumer is VRFConsumerBase {
   function requestRandomWords(
       bytes32 keyHash,
       uint64 accId,
-      uint16 requestConfirmations,
       uint32 callbackGasLimit,
       uint32 numWords
   )
@@ -41,7 +40,6 @@ contract VRFConsumer is VRFConsumerBase {
     requestId = COORDINATOR.requestRandomWords(
       keyHash,
       accId,
-      requestConfirmations,
       callbackGasLimit,
       numWords
     );
@@ -49,7 +47,6 @@ contract VRFConsumer is VRFConsumerBase {
 
   function requestRandomWordsDirect(
       bytes32 keyHash,
-      uint16 requestConfirmations,
       uint32 callbackGasLimit,
       uint32 numWords
   )
@@ -60,7 +57,6 @@ contract VRFConsumer is VRFConsumerBase {
   {
     requestId = COORDINATOR.requestRandomWordsPayment{value: msg.value}(
       keyHash,
-      requestConfirmations,
       callbackGasLimit,
       numWords
     );

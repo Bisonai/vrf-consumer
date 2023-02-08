@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@bisonai-cic/icn-contracts@^0.3.2":
-  version "0.3.2"
-  resolved "https://npm.pkg.github.com/download/@bisonai-cic/icn-contracts/0.3.2/f97bc3b16d271c0e70019f8de5fa09b957a49c62#f97bc3b16d271c0e70019f8de5fa09b957a49c62"
-  integrity sha512-CAqAQrddMkFwaRyIvW4YhJl9g5VDD5zrVgfHPMEXlHUEGXp73pRESdE/MMePB1J7rIdVp73SkGNMYWLFdqLYAw==
+"@bisonai-cic/icn-contracts@^0.4.3":
+  version "0.4.3"
+  resolved "https://npm.pkg.github.com/download/@bisonai-cic/icn-contracts/0.4.3/4191fcab5e5bc8ab358a44fe7d3be094a6ef5280#4191fcab5e5bc8ab358a44fe7d3be094a6ef5280"
+  integrity sha512-alAhzrpOyrvwcDFpFGP73NYTyukPWgx3Ne5kRn8yN6VIyL6q7ItgA2Z8LpxQCMUD0l/GL3krMBgAESn7QkyFqg==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
