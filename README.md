@@ -6,8 +6,8 @@ Consumer smart contract that utilizes VRF functionality from [Orakl Network](htt
 
 Internally, the scripts access following smart contracts:
 
-* `Prepayment` ([0x6f735909cd47b9f9E9B80056fFCC9b667f62411e](https://baobab.scope.klaytn.com/account/0x6f735909cd47b9f9E9B80056fFCC9b667f62411e))
-* `VRFCoordinator` ([0xC2690d24a850116180300940Ad248f3Fc1a0e83E](https://baobab.scope.klaytn.com/account/0xC2690d24a850116180300940Ad248f3Fc1a0e83E))
+* `Prepayment` ([0xE22e67F7ce4b6FA9E3ABCB6125Fb53Cb577B34Ef](https://baobab.scope.klaytn.com/account/0xE22e67F7ce4b6FA9E3ABCB6125Fb53Cb577B34Ef))
+* `VRFCoordinator` ([0x7cb70669dB89f6d20C47ecF8f010F477722D1E22](https://baobab.scope.klaytn.com/account/0x7cb70669dB89f6d20C47ecF8f010F477722D1E22))
 
 If you want to access different deployments of `Prepayment` or `VRFCoordinator`, you can change it inside `hardhat.config.ts` in `namedAccounts` property.
 
