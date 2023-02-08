@@ -2,10 +2,11 @@
     "name": "vrf-consumer",
     "version": "0.1.0",
     "license": "MIT",
+    "author": "Bisonai",
     "scripts": {
         "clean": "npx hardhat clean",
-        "build": "tsc",
-        "compile": "npx hardhat compile"
+        "compile": "npx hardhat compile",
+        "build": "tsc"
     },
     "devDependencies": {
         "@bisonai-cic/icn-contracts": "^0.4.3",
