@@ -8,7 +8,7 @@
         "compile": "npx hardhat compile"
     },
     "devDependencies": {
-        "@bisonai-cic/icn-contracts": "^0.3.2",
+        "@bisonai-cic/icn-contracts": "^0.4.3",
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
         "@nomicfoundation/hardhat-toolbox": "^2.0.1",
         "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
