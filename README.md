@@ -40,7 +40,7 @@ npx hardhat --mnemonic [MNEMONIC]
 ```
 
 The script will print out a public address corresponding to your mnemonic.
-Then, you can use this address to receive free KLAY from [baobab's faucet](https://baobab.wallet.klaytn.foundation/faucet).
+Then, you can use this address to receive free KLAY using [baobab's faucet](https://baobab.wallet.klaytn.foundation/faucet).
 
 ## Installation
 
