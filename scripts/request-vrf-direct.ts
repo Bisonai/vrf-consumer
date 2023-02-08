@@ -7,9 +7,14 @@ async function main() {
   const callbackGasLimit = 500_000
   const numWords = 1
 
-  await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, {
-    value: ethers.utils.parseEther('1.0')
-  })
+  const txReceipt = await (
+    await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, {
+      value: ethers.utils.parseEther('1.0')
+    })
+  ).wait()
+
+  console.log(txReceipt)
+  console.log('Requested random words using direct payment')
 }
 
 main().catch((error) => {

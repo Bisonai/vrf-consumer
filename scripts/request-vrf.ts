@@ -14,7 +14,11 @@ async function main() {
     const callbackGasLimit = 500_000
     const numWords = 1
 
-    await vrfConsumer.requestRandomWords(keyHash, ACC_ID, callbackGasLimit, numWords)
+    const txReceipt = await (
+      await vrfConsumer.requestRandomWords(keyHash, ACC_ID, callbackGasLimit, numWords)
+    ).wait()
+    console.log(txReceipt)
+    console.log('Requested random words using prepayment')
   }
 }
 
