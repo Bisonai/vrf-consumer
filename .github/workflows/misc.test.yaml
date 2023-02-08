@@ -1,0 +1,23 @@
+name: "Misc tests"
+on:
+  push:
+    paths:
+      - "contracts/**"
+      - "deploy/**"
+      - "scripts/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.12"
+      - run: yarn
+        working-directory: ./contracts
+      - run: yarn solhint
+        working-directory: ./contracts
+      - run: yarn eslint
+        working-directory: ./contracts
+      - run: yarn compile
+        working-directory: ./contracts

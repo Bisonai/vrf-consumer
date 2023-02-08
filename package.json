@@ -6,7 +6,9 @@
     "scripts": {
         "clean": "npx hardhat clean",
         "compile": "npx hardhat compile",
-        "build": "tsc"
+        "build": "tsc",
+        "eslint": "DEBUG=eslint:cli-engine npx eslint 'scripts/**' 'deploy/**'",
+        "solhint": "./node_modules/.bin/solhint -f table contracts/*.sol"
     },
     "devDependencies": {
         "@bisonai/orakl-contracts": "^0.4.4",
@@ -17,12 +19,20 @@
         "@nomiclabs/hardhat-web3": "^2.0.0",
         "@typechain/ethers-v5": "^10.2.0",
         "@typechain/hardhat": "^6.1.5",
+        "@typescript-eslint/eslint-plugin": "^5.51.0",
+        "@typescript-eslint/parser": "^5.51.0",
         "chai": "^4.3.7",
         "dotenv": "^16.0.3",
+        "eslint": "^8.33.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
         "ethers": "^5.7.2",
         "hardhat": "^2.12.6",
         "hardhat-deploy": "^0.11.22",
         "hardhat-gas-reporter": "^1.0.9",
+        "prettier": "^2.8.4",
+        "solhint": "^3.3.8",
+        "solhint-plugin-prettier": "^0.0.5",
         "solidity-coverage": "^0.8.2",
         "ts-node": "^10.9.1",
         "typechain": "^8.1.1",
