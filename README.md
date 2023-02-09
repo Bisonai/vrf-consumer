@@ -36,7 +36,7 @@ You can convert your newly generated mnemonic with following hardhat task.
 Please replace the `[MENONIC]` with your mnemonic.
 
 ```shell
-npx hardhat --mnemonic [MNEMONIC]
+npx hardhat address --mnemonic [MNEMONIC]
 ```
 
 The script will print out a public address corresponding to your mnemonic.
@@ -71,7 +71,7 @@ If you prefer to use Orakl Network VRF without having a long-lasting account, yo
 In such case, you can skip the following command and go directly to **Request VRF with Direct Payment**.
 
 ```
-npx hardhat run scripts/create-and-fund.ts --network baobab
+npx hardhat run scripts/create-and-fund-account.ts --network baobab
 ```
 
 After successfully executing the command above, set the value of environment variable `ACC_ID` inside of `.env` file to account ID that was generated using the script above.
