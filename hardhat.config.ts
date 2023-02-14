@@ -1,4 +1,4 @@
-import { HardhatUserConfig } from 'hardhat/config'
+import { HardhatUserConfig, task } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox'
 import '@nomiclabs/hardhat-web3'
 import '@nomiclabs/hardhat-ethers'
@@ -7,9 +7,19 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const commonConfig = {
-  gas: 5_000_000,
-  accounts:[process.env.PRIV_KEY??""]
+let commonConfig = {}
+if (process.env.PRIV_KEY) {
+  commonConfig = {
+    gas: 5_000_000,
+    accounts: [process.env.PRIV_KEY]
+  }
+} else {
+  commonConfig = {
+    gas: 5_000_000,
+    accounts: {
+      mnemonic: process.env.MNEMONIC || ''
+    }
+  }
 }
 
 const config: HardhatUserConfig = {
@@ -52,5 +62,12 @@ const config: HardhatUserConfig = {
     }
   }
 }
+
+task('address', 'Convert mnemonic to address')
+  .addParam('mnemonic', "The account's mnemonic")
+  .setAction(async (taskArgs, hre) => {
+    const wallet = hre.ethers.Wallet.fromMnemonic(taskArgs.mnemonic)
+    console.log(wallet.address)
+  })
 
 export default config
