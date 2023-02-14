@@ -9,9 +9,7 @@ dotenv.config()
 
 const commonConfig = {
   gas: 5_000_000,
-  accounts: {
-    mnemonic: process.env.MNEMONIC || ''
-  }
+  accounts:[process.env.PRIV_KEY??""]
 }
 
 const config: HardhatUserConfig = {
@@ -54,12 +52,5 @@ const config: HardhatUserConfig = {
     }
   }
 }
-
-task('address', 'Convert mnemonic to address')
-  .addParam('mnemonic', "The account's mnemonic")
-  .setAction(async (taskArgs, hre) => {
-    const wallet = hre.ethers.Wallet.fromMnemonic(taskArgs.mnemonic)
-    console.log(wallet.address)
-  })
 
 export default config
