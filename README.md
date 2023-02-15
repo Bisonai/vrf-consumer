@@ -13,7 +13,7 @@ If you want to access different deployments of `Prepayment` or `VRFCoordinator`,
 
 ## Prerequisites
 
-Create a copy of `.env.example` file and fill in values for `MNEMONIC` and `PROVIDER` environment variables.
+Create a copy of `.env.example` file and fill in values for `PROVIDER`, and `MNEMONIC` or `PRIV_KEY` (the difference is explained below) environment variables.
 These variables will be used for connection to JSON-RPC endpoint, deployment and use of your [`VRFConsumer` smart contract](contracts/VRFConsumer.sol).
 
 ```shell
@@ -22,6 +22,10 @@ cp .env.example .env
 
 `PROVIDER` can be set to any JSON-RPC endpoint.
 The list of free available JSON-RPC endpoint can be found in [official Klaytn documentation](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en#testnet-baobab-public-json-rpc-endpoints).
+
+This repository supports connection to wallet either through mnemonic or private key.
+
+### Mnemonic
 
 `MNEMONIC` can be generated using [npm mnemonics package](https://www.npmjs.com/package/mnemonics).
 
@@ -41,6 +45,12 @@ npx hardhat address --mnemonic [MNEMONIC]
 
 The script will print out a public address corresponding to your mnemonic.
 Then, you can use this address to receive free KLAY using [Baobab's faucet](https://baobab.wallet.klaytn.foundation/faucet).
+
+### Private key
+
+If you already have a wallet, you can reuse its private key, and connect to JSON-RPC endpoint with it.
+In case you use Metamask, read [how to export an account's private key.](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key).
+After you extract private key, store it in `PRIV_KEY` variable inside of `.env` file.
 
 ## Installation
 
