@@ -5,22 +5,22 @@ import "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
 import "@bisonai/orakl-contracts/src/v0.1/interfaces/VRFCoordinatorInterface.sol";
 
 contract VRFConsumer is VRFConsumerBase {
-  uint256 public s_randomWord;
-  address private s_owner;
+  uint256 public sRandomWord;
+  address private sOwner;
 
   VRFCoordinatorInterface COORDINATOR;
 
   error OnlyOwner(address notOwner);
 
   modifier onlyOwner() {
-      if (msg.sender != s_owner) {
+      if (msg.sender != sOwner) {
           revert OnlyOwner(msg.sender);
       }
       _;
   }
 
   constructor(address coordinator) VRFConsumerBase(coordinator) {
-      s_owner = msg.sender;
+      sOwner = msg.sender;
       COORDINATOR = VRFCoordinatorInterface(coordinator);
   }
 
@@ -71,6 +71,6 @@ contract VRFConsumer is VRFConsumerBase {
   {
     // requestId should be checked if it matches the expected request
     // Generate random value between 1 and 50.
-    s_randomWord = (randomWords[0] % 50) + 1;
+    sRandomWord = (randomWords[0] % 50) + 1;
   }
 }
