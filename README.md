@@ -111,7 +111,7 @@ npx hardhat run scripts/request-vrf-direct.ts --network baobab
 npx hardhat run scripts/read-vrf.ts --network baobab
 ```
 
-## Available Individual Hardhat Tasks
+## Hardhat Tasks
 
 ### Create new Prepayment account
 
@@ -124,9 +124,9 @@ npx hardhat createAccount --network baobab
 When you already created an account, you can use Fund Account to deposit to excisting account
 
 ```shell
-export ACCOUNT=411965
-export AMOUNT=1
-export NETWORK=baobab
+export ACCOUNT=
+export AMOUNT=
+export NETWORK=
 ```
 
 ```shell

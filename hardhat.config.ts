@@ -75,9 +75,9 @@ task('createAccount', 'Create new prepayment account ID').setAction(async (taskA
   const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
   const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
 
-  // Create a new account. One address can make many accounts.
   const txReceipt = await (await prepayment.createAccount()).wait()
   const accId = txReceipt.events[0].args.accId.toString()
+
   console.log(`Account created with ID: ${accId}`)
 })
 
@@ -136,6 +136,7 @@ task('addConsumer', 'Add consumer')
       const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
       const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
       await (await prepayment.addConsumer(accId, consumerAddress)).wait()
+
       console.log(`Added consumer ${consumerAddress} to prepayment account`)
     } else {
       if (!accId) console.log(`Prepayment accountId is not defined`)
@@ -154,6 +155,7 @@ task('removeConsumer', 'Remove consumer')
       const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
       const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
       await (await prepayment.removeConsumer(accId, consumerAddress)).wait()
+
       console.log(`Removed consumer ${consumerAddress} to prepayment account`)
     } else {
       if (!accId) console.log(`Prepayment accountId is not defined`)
