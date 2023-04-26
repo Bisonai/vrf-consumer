@@ -80,7 +80,7 @@ The script below will create a new account and deposit 1 KLAY from address corre
 If you prefer to use Orakl Network VRF without having a long-lasting account, you can use **Direct Payment** method.
 In such case, you can skip the following command and go directly to **Request VRF with Direct Payment**.
 
-```
+```shell
 npx hardhat run scripts/create-and-fund-account.ts --network baobab
 ```
 
@@ -95,18 +95,94 @@ To deploy `VRFConsumer`, run `npx hardhat deploy --network baobab`.
 
 ### Request VRF with Prepayment
 
-```
+```shell
 npx hardhat run scripts/request-vrf.ts --network baobab
 ```
 
 ### Request VRF with Direct Payment
 
-```
+```shell
 npx hardhat run scripts/request-vrf-direct.ts --network baobab
 ```
 
 ### Read VRF response
 
-```
+```shell
 npx hardhat run scripts/read-vrf.ts --network baobab
+```
+
+## Available Individual Hardhat Tasks
+
+### Create new Prepayment account
+
+```shell
+npx hardhat createAccount --network baobab
+```
+
+### Fund Account
+
+When you already created an account, you can use Fund Account to deposit to excisting account
+
+```shell
+export ACCOUNT=411965
+export AMOUNT=1
+export NETWORK=baobab
+```
+
+```shell
+npx hardhat deposit \
+    --account-id $ACCOUNT \
+    --amount $AMOUNT \
+    --network $NETWORK
+```
+
+### Withdraw from Account
+
+Withdraw is used to get out deposited amount from account.
+
+```shell
+export ACCOUNT=
+export AMOUNT=
+export NETWORK=
+```
+
+```shell
+npx hardhat withdraw \
+    --account-id $ACCOUNT \
+    --amount $AMOUNT \
+    --network $NETWORK
+```
+
+### Add Consumer
+
+Add Consumer address to Prepayment.
+
+```shell
+export CONSUMERADDRESS=
+export AMOUNT=
+export NETWORK=
+```
+
+```shell
+npx hardhat addConsumer \
+    --consumer $CONSUMERADDRESS \
+    --account-id $ACCOUNT \
+    --network $NETWORK
+```
+
+### Remove Consumer
+
+Remove Consumer from Prepayment.
+
+```shell
+export CONSUMERADDRESS=
+export ACCOUNT=
+export NETWORK=
+```
+
+```shell
+npx hardhat removeConsumer \
+    --consumer ${CONSUMERADDRESS} \
+    --account-id ${ACCOUNT} \
+    --network ${NETWORK}
 ```

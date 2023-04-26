@@ -71,10 +71,21 @@ task('address', 'Convert mnemonic to address')
     console.log(wallet.address)
   })
 
-task('deposit', 'Deposit klay to AccId')
+task('createAccount', 'Create new prepayment account ID').setAction(async (taskArgs, hre) => {
+  const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
+  const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
+
+  // Create a new account. One address can make many accounts.
+  const txReceipt = await (await prepayment.createAccount()).wait()
+  const accId = txReceipt.events[0].args.accId.toString()
+  console.log(`Account created with ID: ${accId}`)
+})
+
+task('deposit', 'Deposit $KLAY')
   .addParam('amount', 'The amount of Klay')
+  .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
-    const accId = process.env.ACC_ID
+    const accId = taskArgs.accountId || process.env.ACC_ID
     const klayAmount = taskArgs.amount
 
     if (accId) {
@@ -86,9 +97,67 @@ task('deposit', 'Deposit klay to AccId')
       const newBalance = ethers.utils.formatEther(balance)
 
       console.log(`Deposited ${klayAmount} KLAY to account Id ${accId}`)
-      console.log(`New balance: ${newBalance} klay`)
+      console.log(`Balance after deposit: ${newBalance} klay`)
     } else {
-      console.log(`Prepayment account ID is not defined`)
+      console.log(`Prepayment accountId is not defined`)
+    }
+  })
+
+task('withdraw', 'Withdraw deposit')
+  .addParam('amount', 'The amount of Klay')
+  .addOptionalParam('accountId', 'Account Id')
+  .setAction(async (taskArgs, hre) => {
+    const accId = taskArgs.accountId || process.env.ACC_ID
+    const klayAmount = taskArgs.amount
+
+    if (accId) {
+      const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
+      const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
+      const amount = ethers.utils.parseEther(klayAmount)
+      const txReceipt = await (await prepayment.withdraw(accId, amount)).wait()
+      const balance = txReceipt.events[0].args.newBalance.toString()
+      const newBalance = ethers.utils.formatEther(balance)
+
+      console.log(`Deposited ${klayAmount} KLAY to account Id ${accId}`)
+      console.log(`Balance after withdraw: ${newBalance} klay`)
+    } else {
+      console.log(`Prepayment accountId is not defined`)
+    }
+  })
+
+task('addConsumer', 'Add consumer')
+  .addParam('consumer', 'Consumer Address')
+  .addOptionalParam('accountId', 'Account Id')
+  .setAction(async (taskArgs, hre) => {
+    const accId = taskArgs.accountId || process.env.ACC_ID
+    const consumerAddress = taskArgs.consumer || (await ethers.getContract('VRFConsumer')).address
+
+    if (accId && consumerAddress) {
+      const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
+      const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
+      await (await prepayment.addConsumer(accId, consumerAddress)).wait()
+      console.log(`Added consumer ${consumerAddress} to prepayment account`)
+    } else {
+      if (!accId) console.log(`Prepayment accountId is not defined`)
+      if (!consumerAddress) console.log(`Consumer Address is not defined`)
+    }
+  })
+
+task('removeConsumer', 'Remove consumer')
+  .addParam('consumer', 'Consumer Address')
+  .addOptionalParam('accountId', 'Account Id')
+  .setAction(async (taskArgs, hre) => {
+    const accId = taskArgs.accountId || process.env.ACC_ID
+    const consumerAddress = taskArgs.consumer || (await ethers.getContract('VRFConsumer')).address
+
+    if (accId && consumerAddress) {
+      const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
+      const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
+      await (await prepayment.removeConsumer(accId, consumerAddress)).wait()
+      console.log(`Removed consumer ${consumerAddress} to prepayment account`)
+    } else {
+      if (!accId) console.log(`Prepayment accountId is not defined`)
+      if (!consumerAddress) console.log(`Consumer Address is not defined`)
     }
   })
 
