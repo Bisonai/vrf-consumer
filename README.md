@@ -21,7 +21,7 @@ cp .env.example .env
 ```
 
 `PROVIDER` can be set to any JSON-RPC endpoint.
-The list of free available JSON-RPC endpoint can be found in [official Klaytn documentation](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en#testnet-baobab-public-json-rpc-endpoints).
+The list of free available JSON-RPC endpoint can be found in [official Klaytn documentation](https://docs.klaytn.foundation/content/dapp/rpc-service/public-en#testnet-baobab-public-json-rpc-endpoints).
 
 This repository supports connection to wallet either through mnemonic or private key.
 
