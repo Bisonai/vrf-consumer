@@ -21,7 +21,7 @@ cp .env.example .env
 ```
 
 `PROVIDER` can be set to any JSON-RPC endpoint.
-The list of free available JSON-RPC endpoint can be found in [official Klaytn documentation](https://docs.klaytn.foundation/content/dapp/json-rpc/public-en#testnet-baobab-public-json-rpc-endpoints).
+The list of free available JSON-RPC endpoint can be found in [official Klaytn documentation](https://docs.klaytn.foundation/content/dapp/rpc-service/public-en#testnet-baobab-public-json-rpc-endpoints).
 
 This repository supports connection to wallet either through mnemonic or private key.
 
@@ -80,7 +80,7 @@ The script below will create a new account and deposit 1 KLAY from address corre
 If you prefer to use Orakl Network VRF without having a long-lasting account, you can use **Direct Payment** method.
 In such case, you can skip the following command and go directly to **Request VRF with Direct Payment**.
 
-```
+```shell
 npx hardhat run scripts/create-and-fund-account.ts --network baobab
 ```
 
@@ -95,18 +95,70 @@ To deploy `VRFConsumer`, run `npx hardhat deploy --network baobab`.
 
 ### Request VRF with Prepayment
 
-```
+```shell
 npx hardhat run scripts/request-vrf.ts --network baobab
 ```
 
 ### Request VRF with Direct Payment
 
-```
+```shell
 npx hardhat run scripts/request-vrf-direct.ts --network baobab
 ```
 
 ### Read VRF response
 
-```
+```shell
 npx hardhat run scripts/read-vrf.ts --network baobab
+```
+
+## Hardhat Tasks
+
+### Create new account
+
+```shell
+npx hardhat createAccount --network baobab
+```
+
+### Deposit to account
+
+After you have created an account, you can deposit $KLAY to it anytime using the command below.
+
+```shell
+npx hardhat deposit \
+    --account-id $ACCOUNT \
+    --amount $AMOUNT \
+    --network $NETWORK
+```
+
+### Withdraw from account
+
+To withdraw the remaining balance from account, you can use the command below.
+
+```shell
+npx hardhat withdraw \
+    --account-id $ACCOUNT \
+    --amount $AMOUNT \
+    --network $NETWORK
+```
+
+### Add consumer
+
+Add consumer contract to account. Then, consumer contract will be able to request for VRF service.
+
+```shell
+npx hardhat addConsumer \
+    --consumer $CONSUMERADDRESS \
+    --account-id $ACCOUNT \
+    --network $NETWORK
+```
+
+### Remove consumer
+
+Remove consumer contract from account. Then, consumer contract will not be able to request for VRF service anymore.
+
+```shell
+npx hardhat removeConsumer \
+    --consumer ${CONSUMERADDRESS} \
+    --account-id ${ACCOUNT} \
+    --network ${NETWORK}
 ```
