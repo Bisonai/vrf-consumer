@@ -113,15 +113,15 @@ npx hardhat run scripts/read-vrf.ts --network baobab
 
 ## Hardhat Tasks
 
-### Create new Prepayment account
+### Create new account
 
 ```shell
 npx hardhat createAccount --network baobab
 ```
 
-### Fund Account
+### Deposit to account
 
-When you already created an account, you can use Fund Account to deposit to excisting account
+After you have created an account, you can deposit $KLAY to it anytime using the command below.
 
 ```shell
 export ACCOUNT=
@@ -136,9 +136,9 @@ npx hardhat deposit \
     --network $NETWORK
 ```
 
-### Withdraw from Account
+### Withdraw from account
 
-Withdraw is used to get out deposited amount from account.
+To withdraw the remaining balance from account, you can use the command below.
 
 ```shell
 export ACCOUNT=
@@ -153,9 +153,9 @@ npx hardhat withdraw \
     --network $NETWORK
 ```
 
-### Add Consumer
+### Add consumer
 
-Add Consumer address to Prepayment.
+Add consumer contract to account. Then, consumer contract will be able to request for VRF service.
 
 ```shell
 export CONSUMERADDRESS=
@@ -170,9 +170,9 @@ npx hardhat addConsumer \
     --network $NETWORK
 ```
 
-### Remove Consumer
+### Remove consumer
 
-Remove Consumer from Prepayment.
+Remove consumer contract from account. Then, consumer contract will not be able to request for VRF service anymore.
 
 ```shell
 export CONSUMERADDRESS=

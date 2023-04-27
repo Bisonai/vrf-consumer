@@ -71,7 +71,7 @@ task('address', 'Convert mnemonic to address')
     console.log(wallet.address)
   })
 
-task('createAccount', 'Create new prepayment account ID').setAction(async (taskArgs, hre) => {
+task('createAccount', 'Create new account').setAction(async (taskArgs, hre) => {
   const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
   const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
 
@@ -81,8 +81,8 @@ task('createAccount', 'Create new prepayment account ID').setAction(async (taskA
   console.log(`Account created with ID: ${accId}`)
 })
 
-task('deposit', 'Deposit $KLAY')
-  .addParam('amount', 'The amount of Klay')
+task('deposit', 'Deposit $KLAY to account')
+  .addParam('amount', 'The amount of $KLAY')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
     const accId = taskArgs.accountId || process.env.ACC_ID
@@ -96,15 +96,15 @@ task('deposit', 'Deposit $KLAY')
       const balance = txReceipt.events[0].args.newBalance.toString()
       const newBalance = ethers.utils.formatEther(balance)
 
-      console.log(`Deposited ${klayAmount} KLAY to account Id ${accId}`)
-      console.log(`Balance after deposit: ${newBalance} klay`)
+      console.log(`Deposited ${klayAmount} $KLAY to account ${accId}`)
+      console.log(`Account balance after deposit: ${newBalance} $KLAY`)
     } else {
       console.log(`Prepayment accountId is not defined`)
     }
   })
 
-task('withdraw', 'Withdraw deposit')
-  .addParam('amount', 'The amount of Klay')
+task('withdraw', 'Withdraw $KLAY from account')
+  .addParam('amount', 'The amount of $KLAY')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
     const accId = taskArgs.accountId || process.env.ACC_ID
@@ -118,8 +118,8 @@ task('withdraw', 'Withdraw deposit')
       const balance = txReceipt.events[0].args.newBalance.toString()
       const newBalance = ethers.utils.formatEther(balance)
 
-      console.log(`Deposited ${klayAmount} KLAY to account Id ${accId}`)
-      console.log(`Balance after withdraw: ${newBalance} klay`)
+      console.log(`Withdrew ${klayAmount} $KLAY to account ${accId}`)
+      console.log(`Account balance after withdrawal: ${newBalance} $KLAY`)
     } else {
       console.log(`Prepayment accountId is not defined`)
     }
