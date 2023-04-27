@@ -124,12 +124,6 @@ npx hardhat createAccount --network baobab
 After you have created an account, you can deposit $KLAY to it anytime using the command below.
 
 ```shell
-export ACCOUNT=
-export AMOUNT=
-export NETWORK=
-```
-
-```shell
 npx hardhat deposit \
     --account-id $ACCOUNT \
     --amount $AMOUNT \
@@ -139,12 +133,6 @@ npx hardhat deposit \
 ### Withdraw from account
 
 To withdraw the remaining balance from account, you can use the command below.
-
-```shell
-export ACCOUNT=
-export AMOUNT=
-export NETWORK=
-```
 
 ```shell
 npx hardhat withdraw \
@@ -158,12 +146,6 @@ npx hardhat withdraw \
 Add consumer contract to account. Then, consumer contract will be able to request for VRF service.
 
 ```shell
-export CONSUMERADDRESS=
-export AMOUNT=
-export NETWORK=
-```
-
-```shell
 npx hardhat addConsumer \
     --consumer $CONSUMERADDRESS \
     --account-id $ACCOUNT \
@@ -173,12 +155,6 @@ npx hardhat addConsumer \
 ### Remove consumer
 
 Remove consumer contract from account. Then, consumer contract will not be able to request for VRF service anymore.
-
-```shell
-export CONSUMERADDRESS=
-export ACCOUNT=
-export NETWORK=
-```
 
 ```shell
 npx hardhat removeConsumer \
