@@ -40,13 +40,13 @@ const config: HardhatUserConfig = {
       gasPrice: 250_000_000_000
     },
     baobab: {
-      url: 'https://api.baobab.klaytn.net:8651',
+      url: process.env.PROVIDER || 'https://api.baobab.klaytn.net:8651',
       chainId: 1001,
       ...commonConfig,
       gasPrice: 250_000_000_000
     },
     cypress: {
-      url: 'https://public-en-cypress.klaytn.net',
+      url: process.env.PROVIDER || 'https://public-en-cypress.klaytn.net',
       ...commonConfig,
       gasPrice: 250_000_000_000
     }
