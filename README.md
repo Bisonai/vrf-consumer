@@ -113,7 +113,7 @@ npx hardhat run scripts/read-vrf.ts --network baobab
 
 ## Hardhat tasks
 
-The following tasks allow for more finer control experimentation with the example code in this repository.
+The following tasks allow for more finer control over experimentation with the example code in this repository.
 
 ### Create a new account
 
