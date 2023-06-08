@@ -1,6 +1,6 @@
 {
     "name": "vrf-consumer",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "MIT",
     "author": "Bisonai",
     "scripts": {
@@ -11,7 +11,7 @@
         "solhint": "./node_modules/.bin/solhint -f table contracts/*.sol"
     },
     "devDependencies": {
-        "@bisonai/orakl-contracts": "^0.4.4",
+        "@bisonai/orakl-contracts": "^1.0.0",
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
         "@nomicfoundation/hardhat-toolbox": "^2.0.1",
         "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",

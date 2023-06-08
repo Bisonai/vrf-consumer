@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-import "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
-import "@bisonai/orakl-contracts/src/v0.1/interfaces/VRFCoordinatorInterface.sol";
+import { VRFConsumerBase } from "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
+import { IVRFCoordinator } from "@bisonai/orakl-contracts/src/v0.1/interfaces/IVRFCoordinator.sol";
 
 contract VRFConsumer is VRFConsumerBase {
   uint256 public sRandomWord;
   address private sOwner;
 
-  VRFCoordinatorInterface COORDINATOR;
+  IVRFCoordinator COORDINATOR;
 
   error OnlyOwner(address notOwner);
 
@@ -21,7 +21,7 @@ contract VRFConsumer is VRFConsumerBase {
 
   constructor(address coordinator) VRFConsumerBase(coordinator) {
       sOwner = msg.sender;
-      COORDINATOR = VRFCoordinatorInterface(coordinator);
+      COORDINATOR = IVRFCoordinator(coordinator);
   }
 
   // Receive remaining payment from requestRandomWordsPayment
@@ -55,10 +55,11 @@ contract VRFConsumer is VRFConsumerBase {
       onlyOwner
       returns (uint256 requestId)
   {
-    requestId = COORDINATOR.requestRandomWordsPayment{value: msg.value}(
+    requestId = COORDINATOR.requestRandomWords{value: msg.value}(
       keyHash,
       callbackGasLimit,
-      numWords
+      numWords,
+      address(this)
     );
   }
 
