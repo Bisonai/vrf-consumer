@@ -9,7 +9,7 @@ async function main() {
 
   const txReceipt = await (
     await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, {
-      value: ethers.utils.parseEther('3.0')
+      value: ethers.utils.parseEther('1.0')
     })
   ).wait()
 
