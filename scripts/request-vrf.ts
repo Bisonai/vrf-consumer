@@ -10,7 +10,7 @@ async function main() {
   } else {
     const vrfConsumer = await ethers.getContract('VRFConsumer')
 
-    const keyHash = '0x47ede773ef09e40658e643fe79f8d1a27c0aa6eb7251749b268f829ea49f2024'
+    const keyHash = '0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c'
     const callbackGasLimit = 500_000
     const numWords = 1
 
