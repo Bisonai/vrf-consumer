@@ -30,7 +30,7 @@ contract VRFConsumer is VRFConsumerBase {
     function requestRandomWords(
         bytes32 keyHash,
         uint64 accId,
-        uint32 callbackGasLimit,a
+        uint32 callbackGasLimit,
         uint32 numWords
     ) public onlyOwner returns (uint256 requestId) {
         requestId = COORDINATOR.requestRandomWords(keyHash, accId, callbackGasLimit, numWords);
