@@ -83,7 +83,7 @@ task('createAccount', 'Create new account').setAction(async (taskArgs, hre) => {
   console.log(`Account created with ID: ${accId}`)
 })
 
-task('cancelAccount', 'Create new account')
+task('cancelAccount', 'Cancel account')
   .addParam('to', 'Account address')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
