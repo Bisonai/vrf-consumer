@@ -3,6 +3,7 @@ pragma solidity ^0.8.16;
 
 import {VRFConsumerBase} from "@bisonai/orakl-contracts/src/v0.1/VRFConsumerBase.sol";
 import {IVRFCoordinator} from "@bisonai/orakl-contracts/src/v0.1/interfaces/IVRFCoordinator.sol";
+import {IPrepayment} from "@bisonai/orakl-contracts/src/v0.1/interfaces/IPrepayment.sol";
 
 contract VRFConsumer is VRFConsumerBase {
     uint256 public sRandomWord;
@@ -39,13 +40,14 @@ contract VRFConsumer is VRFConsumerBase {
     function requestRandomWordsDirect(
         bytes32 keyHash,
         uint32 callbackGasLimit,
-        uint32 numWords
+        uint32 numWords,
+        address refundRecipient
     ) public payable onlyOwner returns (uint256 requestId) {
         requestId = COORDINATOR.requestRandomWords{value: msg.value}(
             keyHash,
             callbackGasLimit,
             numWords,
-            address(this)
+            refundRecipient
         );
     }
 
@@ -56,5 +58,14 @@ contract VRFConsumer is VRFConsumerBase {
         // requestId should be checked if it matches the expected request
         // Generate random value between 1 and 50.
         sRandomWord = (randomWords[0] % 50) + 1;
+    }
+
+    function cancelRequest(uint256 requestId) external onlyOwner {
+        COORDINATOR.cancelRequest(requestId);
+    }
+
+    function withdrawTemporary(uint64 accId) external onlyOwner {
+        address prepaymentAddress = COORDINATOR.getPrepaymentAddress();
+        IPrepayment(prepaymentAddress).withdrawTemporary(accId, payable(msg.sender));
     }
 }
