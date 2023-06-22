@@ -1,4 +1,4 @@
-import { ethers } from 'hardhat'
+import { ethers, getNamedAccounts } from 'hardhat'
 
 async function main() {
   const vrfConsumer = await ethers.getContract('VRFConsumer')
@@ -7,8 +7,9 @@ async function main() {
   const callbackGasLimit = 500_000
   const numWords = 1
 
+  const { deployer } = await getNamedAccounts()
   const txReceipt = await (
-    await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, {
+    await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, deployer {
       value: ethers.utils.parseEther('1.0')
     })
   ).wait()
