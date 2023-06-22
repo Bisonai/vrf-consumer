@@ -9,7 +9,7 @@ async function main() {
 
   const { deployer } = await getNamedAccounts()
   const txReceipt = await (
-    await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, deployer {
+    await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, deployer, {
       value: ethers.utils.parseEther('1.0')
     })
   ).wait()
