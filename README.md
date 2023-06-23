@@ -2,17 +2,12 @@
 
 Consumer smart contract that utilizes VRF functionality from [Orakl Network](https://www.orakl.network).
 
+> Warning: This repository and smart contract are meant to be for deployment on [`Baobab`](https://docs.klaytn.foundation/misc/faq#what-is-cypress-what-is-baobab).
+
 Internally, the scripts access following smart contracts:
 
-Baobab
-
-- `Prepayment` ([0xf37a736b476fCEaB261371A3B3B330772630b0bF](https://baobab.klaytnfinder.io/account/0xf37a736b476fCEaB261371A3B3B330772630b0bF))
-- `VRFCoordinator` ([0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F](https://baobab.klaytnfinder.io/account/0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F))
-
-Cypress
-
-- `Prepayment` ([0xCD54643C2Cd905e31d1ca1bF6617cbA9746F2e37](https://www.klaytnfinder.io/account/0xCD54643C2Cd905e31d1ca1bF6617cbA9746F2e37))
-- `VRFCoordinator` ([0xCfB34D7af29E070Ec2fd726e130862F7771217A8](https://www.klaytnfinder.io/account/0xCfB34D7af29E070Ec2fd726e130862F7771217A8))
+- `Prepayment` ([0xf37a736b476fCEaB261371A3B3B330772630b0bF](https://baobab.scope.klaytn.com/account/0xf37a736b476fCEaB261371A3B3B330772630b0bF))
+- `VRFCoordinator` ([0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F](https://baobab.scope.klaytn.com/account/0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F))
 
 If you want to access different deployments of `Prepayment` or `VRFCoordinator`, you can change it inside `hardhat.config.ts` in `namedAccounts` property.
 

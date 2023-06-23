@@ -56,12 +56,10 @@ const config: HardhatUserConfig = {
       default: 0
     },
     prepayment: {
-      baobab: '0xf37a736b476fCEaB261371A3B3B330772630b0bF',
-      cypress: '0xCD54643C2Cd905e31d1ca1bF6617cbA9746F2e37'
+      baobab: '0xf37a736b476fCEaB261371A3B3B330772630b0bF'
     },
     vrfCoordinator: {
-      baobab: '0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F',
-      cypress: '0xCfB34D7af29E070Ec2fd726e130862F7771217A8'
+      baobab: '0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F'
     }
   }
 }
@@ -82,22 +80,6 @@ task('createAccount', 'Create new account').setAction(async (taskArgs, hre) => {
 
   console.log(`Account created with ID: ${accId}`)
 })
-
-task('cancelAccount', 'Cancel account')
-  .addParam('to', 'Account address')
-  .addOptionalParam('accountId', 'Account Id')
-  .setAction(async (taskArgs, hre) => {
-    const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
-    const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
-
-    const accId = taskArgs.accountId || process.env.ACC_ID
-    const to = taskArgs.amount
-
-    const txReceipt = await (await prepayment.cancelAccount(accId, to)).wait()
-
-    console.log(txReceipt)
-    console.log(`Account canceled with ID: ${accId}`)
-  })
 
 task('deposit', 'Deposit $KLAY to account')
   .addParam('amount', 'The amount of $KLAY')
