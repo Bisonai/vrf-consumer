@@ -57,11 +57,11 @@ const config: HardhatUserConfig = {
     },
     prepayment: {
       baobab: '0xf37a736b476fCEaB261371A3B3B330772630b0bF',
-      cypress: '0xCD54643C2Cd905e31d1ca1bF6617cbA9746F2e37'
+      cypress: '0xFD8f232648Dc41FA425214646e0290B9AB6014ED'
     },
     vrfCoordinator: {
       baobab: '0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F',
-      cypress: '0xCfB34D7af29E070Ec2fd726e130862F7771217A8'
+      cypress: '0x55048101797D0D8B812e9ED3854AE90b69E6642A'
     }
   }
 }
