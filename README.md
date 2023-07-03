@@ -11,8 +11,8 @@ Baobab
 
 Cypress
 
-- `Prepayment` ([0xCD54643C2Cd905e31d1ca1bF6617cbA9746F2e37](https://www.klaytnfinder.io/account/0xCD54643C2Cd905e31d1ca1bF6617cbA9746F2e37))
-- `VRFCoordinator` ([0xCfB34D7af29E070Ec2fd726e130862F7771217A8](https://www.klaytnfinder.io/account/0xCfB34D7af29E070Ec2fd726e130862F7771217A8))
+- `Prepayment` ([0xFD8f232648Dc41FA425214646e0290B9AB6014ED](https://www.klaytnfinder.io/account/0xFD8f232648Dc41FA425214646e0290B9AB6014ED))
+- `VRFCoordinator` ([0x55048101797D0D8B812e9ED3854AE90b69E6642A](https://www.klaytnfinder.io/account/0x55048101797D0D8B812e9ED3854AE90b69E6642A))
 
 If you want to access different deployments of `Prepayment` or `VRFCoordinator`, you can change it inside `hardhat.config.ts` in `namedAccounts` property.
 
