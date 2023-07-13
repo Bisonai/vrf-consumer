@@ -1,5 +1,6 @@
 import { ethers, getNamedAccounts } from 'hardhat'
 import { getKeyHash } from './utils'
+import { estimateServiceFee } from './get-estimated-service-fee'
 
 async function main() {
   const vrfConsumer = await ethers.getContract('VRFConsumer')
@@ -9,9 +10,11 @@ async function main() {
   const numWords = 1
 
   const { deployer } = await getNamedAccounts()
+  const estimatedServiceFee = await estimateServiceFee()
+
   const txReceipt = await (
     await vrfConsumer.requestRandomWordsDirect(keyHash, callbackGasLimit, numWords, deployer, {
-      value: ethers.utils.parseEther('2.5')
+      value: ethers.utils.parseEther(estimatedServiceFee.toString())
     })
   ).wait()
 

@@ -4,17 +4,25 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-async function main() {
+export async function estimateServiceFee() {
   const { vrfCoordinator: coordinatorAddress } = await hre.getNamedAccounts()
   const coordinator = await ethers.getContractAt(CoordinatorBase__factory.abi, coordinatorAddress)
 
   const reqCount = 1
   const numSubmission = 1
   const callbackGasLimit = 500_000
-  const estimatedGas = await coordinator.estimateFee(reqCount, numSubmission, callbackGasLimit)
-  const amountKlay = ethers.utils.formatUnits(estimatedGas, 'ether')
+  const estimatedServiceFee = await coordinator.estimateFee(
+    reqCount,
+    numSubmission,
+    callbackGasLimit
+  )
+  const amountKlay = ethers.utils.formatUnits(estimatedServiceFee, 'ether')
 
   console.log(`Estimated Price for 1 Request is: ${amountKlay} Klay`)
+  return amountKlay
+}
+async function main() {
+  await estimateServiceFee()
 }
 
 main().catch((error) => {
