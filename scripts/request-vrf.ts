@@ -1,5 +1,6 @@
 import { ethers } from 'hardhat'
 import dotenv from 'dotenv'
+import { getKeyHash } from './utils'
 
 dotenv.config()
 
@@ -10,7 +11,7 @@ async function main() {
   } else {
     const vrfConsumer = await ethers.getContract('VRFConsumer')
 
-    const keyHash = '0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c'
+    const keyHash = getKeyHash()
     const callbackGasLimit = 500_000
     const numWords = 1
 
