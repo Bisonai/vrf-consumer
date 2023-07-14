@@ -17,7 +17,7 @@ async function main() {
     console.log(`Account ID: ${accId}`)
 
     // Deposit 1 KLAY
-    const klayAmount = '1'
+    const klayAmount = '2.5'
     const amount = ethers.utils.parseEther(klayAmount)
     await (await prepayment.deposit(accId, { value: amount })).wait()
     console.log(`Deposited ${klayAmount} KLAY to account ID ${accId}`)
