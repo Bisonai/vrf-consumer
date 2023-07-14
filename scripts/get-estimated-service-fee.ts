@@ -21,11 +21,8 @@ export async function estimateServiceFee() {
   console.log(`Estimated Price for 1 Request is: ${amountKlay} Klay`)
   return amountKlay
 }
-async function main() {
-  await estimateServiceFee()
-}
 
-main().catch((error) => {
+estimateServiceFee().catch((error) => {
   console.error(error)
   process.exitCode = 1
 })
