@@ -11,7 +11,7 @@
         "solhint": "./node_modules/.bin/solhint -f table contracts/*.sol"
     },
     "devDependencies": {
-        "@bisonai/orakl-contracts": "^1.0.0",
+        "@bisonai/orakl-contracts": "^1.2.2",
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
         "@nomicfoundation/hardhat-toolbox": "^2.0.1",
         "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",

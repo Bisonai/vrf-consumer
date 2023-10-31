@@ -23,10 +23,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@bisonai/orakl-contracts@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@bisonai/orakl-contracts/-/orakl-contracts-1.0.0.tgz#ce0c7dbd54b95345df31ae658b5798d153fea769"
-  integrity sha512-cVou2YAJFIIYLZoj1k5HQFwMbhBusYxy7DmyyxInQanyXz5fpk98b/VpMXNE78/PJVKja9Jtt5SAdzOF2cwmKA==
+"@bisonai/orakl-contracts@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@bisonai/orakl-contracts/-/orakl-contracts-1.2.2.tgz#300463ab3bf911cc49dcf5fd8f1ccac92dfeb274"
+  integrity sha512-2cHolmk/4ZFyjSdCFny6WUDpTzWusHwqDSJJSsee0m7PpZpIHsQiD7pG+yV+BHjCkYVsdRUvIOZNvCvMR2jtWg==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
