@@ -6,13 +6,13 @@ Internally, the scripts access following smart contracts:
 
 Baobab
 
-- `Prepayment` ([0xf37a736b476fCEaB261371A3B3B330772630b0bF](https://baobab.klaytnfinder.io/account/0xf37a736b476fCEaB261371A3B3B330772630b0bF))
-- `VRFCoordinator` ([0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F](https://baobab.klaytnfinder.io/account/0x6B4c0b11bd7fE1E9e9a69297347cFDccA416dF5F))
+- `Prepayment` ([0x8d3A1663d10eEb0bC9C9e537e1BBeA69383194e7](https://baobab.klaytnfinder.io/account/0x8d3A1663d10eEb0bC9C9e537e1BBeA69383194e7))
+- `VRFCoordinator` ([0x05B8AEBAc93C606B6D47994a6EBB7AA1363c765E](https://baobab.klaytnfinder.io/account/0x05B8AEBAc93C606B6D47994a6EBB7AA1363c765E))
 
 Cypress
 
-- `Prepayment` ([0xFD8f232648Dc41FA425214646e0290B9AB6014ED](https://www.klaytnfinder.io/account/0xFD8f232648Dc41FA425214646e0290B9AB6014ED))
-- `VRFCoordinator` ([0x55048101797D0D8B812e9ED3854AE90b69E6642A](https://www.klaytnfinder.io/account/0x55048101797D0D8B812e9ED3854AE90b69E6642A))
+- `Prepayment` ([0xc2C88492Cf7e5240C3EB49353539E75336960600](https://www.klaytnfinder.io/account/0xc2C88492Cf7e5240C3EB49353539E75336960600))
+- `VRFCoordinator` ([0x43bCCfE69523c34FEE9a32ddc2B08ECD62B5cD8e](https://www.klaytnfinder.io/account/0x43bCCfE69523c34FEE9a32ddc2B08ECD62B5cD8e))
 
 If you want to access different deployments of `Prepayment` or `VRFCoordinator`, you can change it inside `hardhat.config.ts` in `namedAccounts` property.
 
