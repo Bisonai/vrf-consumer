@@ -60,8 +60,8 @@ const config: HardhatUserConfig = {
       cypress: '0xc2C88492Cf7e5240C3EB49353539E75336960600'
     },
     vrfCoordinator: {
-      baobab: '0x05B8AEBAc93C606B6D47994a6EBB7AA1363c765E',
-      cypress: '0x43bCCfE69523c34FEE9a32ddc2B08ECD62B5cD8e'
+      baobab: '0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499',
+      cypress: '0x3F247f70DC083A2907B8E76635986fd09AA80EFb'
     }
   }
 }
