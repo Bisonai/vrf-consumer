@@ -144,7 +144,7 @@ task('withdraw', 'Withdraw $KLAY from account')
   })
 
 task('addConsumer', 'Add consumer')
-  .addParam('consumer', 'Consumer Address')
+  .addOptionalParam('consumer', 'Consumer Address')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
     const accId = taskArgs.accountId || process.env.ACC_ID
@@ -163,7 +163,7 @@ task('addConsumer', 'Add consumer')
   })
 
 task('removeConsumer', 'Remove consumer')
-  .addParam('consumer', 'Consumer Address')
+  .addOptionalParam('consumer', 'Consumer Address')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
     const accId = taskArgs.accountId || process.env.ACC_ID
@@ -171,6 +171,7 @@ task('removeConsumer', 'Remove consumer')
 
     if (accId && consumerAddress) {
       const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
+      console.log(prepaymentAddress)
       const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
       await (await prepayment.removeConsumer(accId, consumerAddress)).wait()
 
