@@ -171,7 +171,6 @@ task('removeConsumer', 'Remove consumer')
 
     if (accId && consumerAddress) {
       const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
-      console.log(prepaymentAddress)
       const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
       await (await prepayment.removeConsumer(accId, consumerAddress)).wait()
 
