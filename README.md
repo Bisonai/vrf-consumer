@@ -103,7 +103,7 @@ After successfully executing the command above, set the value of environment var
 If you do not do it, the request for VRF using Prepayment won't be working properly.
 After setting the `ACC_ID` in `.env` file, you can move to the next step **Request VRF with Prepayment**.
 
-If you'd like to use your existing prepayment account, set your account id in the `.env` file and add your deployed consumer to your account by executing the hardhat `removeConsumer` task (described in more detail below). Note that providing `accountId` parameter is optional if your account id is already in the `.env` file and `consumer` parameter is also optional if you've deployed your consumer using hardhat under this repository.
+If you'd like to use your existing prepayment account, set your account id in the `.env` file and add your deployed consumer to your account by executing the hardhat `addConsumer` task (described in more detail below). Note that providing `account-id` parameter is optional if your account id is already in the `.env` file and `consumer` parameter is also optional if you've deployed your consumer using hardhat under this repository.
 
 
 ## Request & Read VRF
