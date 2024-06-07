@@ -75,6 +75,8 @@ yarn compile
 npx hardhat deploy --network baobab
 ```
 
+If you are using [orakl-repository](https://github.com/Bisonai/orakl/) to run a local node, you can also deploy this `VRFConsumer` on your local node. The `Prepayment` and `VRFCoordinator` addresses in [hardhat.config.ts](hardhat.config.ts) `namedAccounts` and `keyHash` in [utils.ts](scripts/utils.ts) are configured properly to be used locally.
+
 ## Get Estimated Service Fee
 
 Prior to creating an account, you have the option to retrieve the estimated service fee for a single VRF request. To do this, you can run the provided script using the following command:
@@ -104,7 +106,6 @@ If you do not do it, the request for VRF using Prepayment won't be working prope
 After setting the `ACC_ID` in `.env` file, you can move to the next step **Request VRF with Prepayment**.
 
 If you'd like to use your existing prepayment account, set your account id in the `.env` file and add your deployed consumer to your account by executing the hardhat `addConsumer` task (described in more detail below). Note that providing `account-id` parameter is optional if your account id is already in the `.env` file and `consumer` parameter is also optional if you've deployed your consumer using hardhat under this repository.
-
 
 ## Request & Read VRF
 
