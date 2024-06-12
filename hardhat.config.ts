@@ -42,7 +42,7 @@ const config: HardhatUserConfig = {
       url: process.env.PROVIDER || 'http://127.0.0.1:8545'
     },
     baobab: {
-      url: process.env.PROVIDER || 'https://api.baobab.klaytn.net:8651',
+      url: process.env.PROVIDER || 'https://public-en.kairos.node.kaia.io',
       chainId: 1001,
       ...commonConfig,
       gasPrice: 250_000_000_000
