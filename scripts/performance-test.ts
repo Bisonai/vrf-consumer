@@ -14,7 +14,7 @@ async function main() {
   const numWords = 1
   const value = ethers.utils.parseEther('1.0')
 
-  const providerUrl = 'https://api.baobab.klaytn.net:8651'
+  const providerUrl = 'https://public-en.kairos.node.kaia.io'
   const provider = new ethers.providers.JsonRpcProvider(providerUrl)
 
   const signer = new ethers.Wallet(
