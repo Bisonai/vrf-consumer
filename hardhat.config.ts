@@ -48,7 +48,7 @@ const config: HardhatUserConfig = {
       gasPrice: 250_000_000_000
     },
     cypress: {
-      url: process.env.PROVIDER || 'https://public-en-cypress.klaytn.net',
+      url: process.env.PROVIDER || 'https://public-en.node.kaia.io'
       ...commonConfig,
       gasPrice: 250_000_000_000
     }
