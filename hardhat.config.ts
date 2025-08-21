@@ -41,14 +41,14 @@ const config: HardhatUserConfig = {
       ...commonConfig,
       url: process.env.PROVIDER || 'http://127.0.0.1:8545'
     },
-    baobab: {
+    kairos: {
       url: process.env.PROVIDER || 'https://public-en.kairos.node.kaia.io',
       chainId: 1001,
       ...commonConfig,
       gasPrice: 250_000_000_000
     },
-    cypress: {
-      url: process.env.PROVIDER || 'https://public-en.node.kaia.io'
+    mainnet: {
+      url: process.env.PROVIDER || 'https://public-en.node.kaia.io',
       ...commonConfig,
       gasPrice: 250_000_000_000
     }
@@ -58,13 +58,13 @@ const config: HardhatUserConfig = {
       default: 0
     },
     prepayment: {
-      baobab: '0x8d3A1663d10eEb0bC9C9e537e1BBeA69383194e7',
-      cypress: '0xc2C88492Cf7e5240C3EB49353539E75336960600',
+      kairos: '0x8d3A1663d10eEb0bC9C9e537e1BBeA69383194e7',
+      mainnet: '0xc2C88492Cf7e5240C3EB49353539E75336960600',
       localhost: '0x5FbDB2315678afecb367f032d93F642f64180aa3'
     },
     vrfCoordinator: {
-      baobab: '0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499',
-      cypress: '0x3F247f70DC083A2907B8E76635986fd09AA80EFb',
+      kairos: '0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499',
+      mainnet: '0x3F247f70DC083A2907B8E76635986fd09AA80EFb',
       localhost: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
     }
   }
@@ -103,45 +103,45 @@ task('cancelAccount', 'Cancel account')
     console.log(`Account canceled with ID: ${accId}`)
   })
 
-task('deposit', 'Deposit $KLAY to account')
-  .addParam('amount', 'The amount of $KLAY')
+task('deposit', 'Deposit $KAIA to account')
+  .addParam('amount', 'The amount of $KAIA')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
     const accId = taskArgs.accountId || process.env.ACC_ID
-    const klayAmount = taskArgs.amount
+    const kaiaAmount = taskArgs.amount
 
     if (accId) {
       const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
       const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
-      const amount = ethers.utils.parseEther(klayAmount)
+      const amount = ethers.utils.parseEther(kaiaAmount)
       const txReceipt = await (await prepayment.deposit(accId, { value: amount })).wait()
       const balance = txReceipt.events[0].args.newBalance.toString()
       const newBalance = ethers.utils.formatEther(balance)
 
-      console.log(`Deposited ${klayAmount} $KLAY to account ${accId}`)
-      console.log(`Account balance after deposit: ${newBalance} $KLAY`)
+      console.log(`Deposited ${kaiaAmount} $KAIA to account ${accId}`)
+      console.log(`Account balance after deposit: ${newBalance} $KAIA`)
     } else {
       console.log(`Prepayment accountId is not defined`)
     }
   })
 
-task('withdraw', 'Withdraw $KLAY from account')
-  .addParam('amount', 'The amount of $KLAY')
+task('withdraw', 'Withdraw $KAIA from account')
+  .addParam('amount', 'The amount of $KAIA')
   .addOptionalParam('accountId', 'Account Id')
   .setAction(async (taskArgs, hre) => {
     const accId = taskArgs.accountId || process.env.ACC_ID
-    const klayAmount = taskArgs.amount
+    const kaiaAmount = taskArgs.amount
 
     if (accId) {
       const { prepayment: prepaymentAddress } = await hre.getNamedAccounts()
       const prepayment = await ethers.getContractAt(Prepayment__factory.abi, prepaymentAddress)
-      const amount = ethers.utils.parseEther(klayAmount)
+      const amount = ethers.utils.parseEther(kaiaAmount)
       const txReceipt = await (await prepayment.withdraw(accId, amount)).wait()
       const balance = txReceipt.events[0].args.newBalance.toString()
       const newBalance = ethers.utils.formatEther(balance)
 
-      console.log(`Withdrew ${klayAmount} $KLAY to account ${accId}`)
-      console.log(`Account balance after withdrawal: ${newBalance} $KLAY`)
+      console.log(`Withdrew ${kaiaAmount} $KAIA to account ${accId}`)
+      console.log(`Account balance after withdrawal: ${newBalance} $KAIA`)
     } else {
       console.log(`Prepayment accountId is not defined`)
     }
