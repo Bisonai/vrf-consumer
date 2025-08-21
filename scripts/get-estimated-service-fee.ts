@@ -16,10 +16,10 @@ export async function estimateServiceFee() {
     numSubmission,
     callbackGasLimit
   )
-  const amountKlay = ethers.utils.formatUnits(estimatedServiceFee, 'ether')
+  const amountKaia = ethers.utils.formatUnits(estimatedServiceFee, 'ether')
 
-  console.log(`Estimated Price for 1 Request is: ${amountKlay} Klay`)
-  return amountKlay
+  console.log(`Estimated Price for 1 Request is: ${amountKaia} $KAIA`)
+  return amountKaia
 }
 
 estimateServiceFee().catch((error) => {
