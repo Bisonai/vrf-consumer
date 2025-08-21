@@ -48,7 +48,7 @@ const config: HardhatUserConfig = {
       gasPrice: 250_000_000_000
     },
     mainnet: {
-      url: process.env.PROVIDER || 'https://public-en.node.kaia.io'
+      url: process.env.PROVIDER || 'https://public-en.node.kaia.io',
       ...commonConfig,
       gasPrice: 250_000_000_000
     }
